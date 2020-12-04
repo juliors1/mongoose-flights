@@ -2,10 +2,15 @@
 const Flight = require('../models/flight')
 
 module.exports = {
-  new: newFlight
+  new: newFlight,
+  create
 
 }
 
 function newFlight(req, res){
-  
+  res.render('flights/new')
+}
+
+function create(req, res){
+
 }
