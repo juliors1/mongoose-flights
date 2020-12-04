@@ -9,7 +9,7 @@ module.exports = {
 }
 
 function newFlight(req, res){
-  res.render('flights/new')
+  res.render('flights/new', {err: '', title: 'New Flight'})
 }
 
 function create(req, res){
