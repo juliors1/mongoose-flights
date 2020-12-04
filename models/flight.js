@@ -18,4 +18,5 @@ const flightSchema = new Schema({
   },
 });
 
-//export model
+// export Schema into a model to peform CRUD Operations on data
+module.exports = mongoose.model("Flight", flightSchema);
