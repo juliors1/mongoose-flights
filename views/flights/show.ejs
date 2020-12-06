@@ -1,6 +1,6 @@
 <%- include('../partials/head') %>
 <section id="show-page">
-    <div>Airline: </div>  
+    <div>Airline: </div>
     <div><%= flight.airline %></div>
     <div>Airport: </div>
     <div><%= flight.airport %></div>
@@ -13,11 +13,11 @@
 <form id="add-ticket-form" method="POST"
   action="/flights/<%= flight._id %>/tickets">
   <label>Seat:</label>
-  <input name="seat" required pattern="[A-F][1-9]\d?">
+  <input name="seat"placeholder=" A-F 1-9 " required pattern="[A-F][1-9]\d?">
   <label>Price:</label>
   <select name="price">
     <option value="300">First Class: $300</option>
-    <option value="250">Buisness Class: $250</option>
+    <option value="250">Business Class: $250</option>
     <option value="100">Economy: $100</option>
   </select>
   <input type="submit" value="Add Ticket">

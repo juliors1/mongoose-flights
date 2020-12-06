@@ -21,8 +21,7 @@ flight.save(function(err) {
   if(err) {
     return res.render('flights/new',{err:err, title: 'Add Flight'})
   }
-  console.log(flight);
-  res.redirect('/flights',{title: 'Flights'})
+  res.redirect('/flights')
 })
 }
 function index(req, res){
