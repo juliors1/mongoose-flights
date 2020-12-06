@@ -35,7 +35,6 @@ function show(req,res){
   .populate('airport').exec(function(err, flight){
       Destination.find({_id: {$nin: flight.airport}},
           function(err, destinations){
-              console.log(destinations)
               res.render('flights/show',{title: 'Flight Details', flight, destinations})
           })
   })

@@ -12,11 +12,7 @@ const ticketSchema = new Schema({
 // compile into a model
 const flightSchema = new Schema({
   airline: { type: String, enum: ["American", "United", "Delta"] },
-  airport: {
-    type: String,
-    enum: ["AUS", "DEN", "JFK", "DFW", "PHX"],
-    default: "JFK",
-  },
+  airport: [{type: Schema.Types.ObjectId, ref: 'Destination'}] ,
   flightNo: { type: Number, required: true, min: 10, max: 9999 },
   departs: {
     type: Date,
