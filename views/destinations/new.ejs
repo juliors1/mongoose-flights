@@ -1,0 +1,27 @@
+<%- include('../partials/head') %>
+<p>Please first ensure that the Destination is not in the dropdown:</p>
+    <select>
+      <% destinations.forEach(function(d) { %>
+        <option><%= d.airport %></option>
+      <% }) %>
+    </select>
+  </p>
+  <form id="add-destination-form" action="/destinations" method="POST">
+    <label>Airport:</label>
+    <input type="text" name="airport" oninput="this.value = this.value.toUpperCase()" maxlength="3">
+    <input type="submit" value="Add Destination" class='AD'>
+  </form>
+  <tbody>
+          <h4>Destinations:</h4>
+        <% destinations.forEach(function(d) { %>
+        <tr>
+            <td><%= d.airport %><br></td>
+            <td>
+            <form action="destination/<%= d.id %>?_method=DELETE" class='delete-form' method="POST">
+                <button type='submit'>X</button>
+            </form>
+            </td>
+        <% }) %>
+      </tr>
+ </tbody>
+<%- include('../partials/footer') %>
