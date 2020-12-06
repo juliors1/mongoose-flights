@@ -5,7 +5,8 @@ module.exports = {
   new: newFlight,
   create,
   index,
-  show
+  show,
+  delete: deleteOne
 }
 
 function newFlight(req, res){
@@ -30,7 +31,11 @@ function index(req, res){
   })
 }
 function show(req,res){
-  Flight.findById(req.params.id, function(err, flight){
-      res.render('flights/show', {title: 'Flight Details', flight})
-  })
+  Flight.findById(req.params.id)
+  .populate('airport')
+  .then((flight) => {
+    res.render('flights/show', {title: 'Flight Details', flight})
+  }).catch((err) => {
+        console.log(err)
+      })
 }
