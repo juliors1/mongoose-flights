@@ -4,8 +4,8 @@ const Flight = require("../models/flight");
 module.exports = {
   new: newDestination,
   create,
-  addToDestinations,
-  delete: deleteDestination,
+  show,
+  deleteDestination,
 };
 
 function newDestination(req, res) {
@@ -18,18 +18,18 @@ function create(req, res) {
     res.redirect("/destinations/new");
   });
 }
-
-function addToDestinations(req, res) {
-  Flight.findById(req.params.id, function (err, flight) {
-    flight.airport.push(req.body.destinationId);
-    flight.save(function (err) {
-      res.redirect(`/flights/${flight._id}`);
+function show(req, res) {
+  Destination.findById(req.params.id, function (err, destination) {
+    res.render("destinations/show", {
+      title: "Destination Detail",
+      destination,
     });
   });
 }
-
 function deleteDestination(req, res) {
-  Destination.findByIdAndDelete(req.params.id)
-  console.log('ERRORS')
-  res.redirect('/destinations/new')
+  console.log("Error");
+  Destination.findByIdAndDelete(req.params.id, function(err, destinations){
+    console.log('ERRORS')
+    res.redirect('/destinations/new')
+})
 }

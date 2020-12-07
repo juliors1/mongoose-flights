@@ -46,7 +46,7 @@
             <td>$<%= t.price %></td>
             <td>
                 <form action="/<%= t._id %>/<%= flight._id%>?_method=DELETE" class='delete-form' method="POST">
-                    <button type='submit'>X</button>
+                    <button type='submit'>🗑️</button>
                 </form>
             </td>
           </tr>
@@ -56,4 +56,4 @@
   <% } else { %>
     <h5>No Tickets Yet</h5>
   <% } %>
-<%- include('../partials/footer') %> 
+<%- include('../partials/footer') %>

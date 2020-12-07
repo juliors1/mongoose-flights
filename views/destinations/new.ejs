@@ -15,10 +15,11 @@
           <h4>Destinations:</h4>
         <% destinations.forEach(function(d) { %>
         <tr>
-            <td><%= d.airport %><br></td>
+          <td><%= d.airport %><br></td>
+            <td><a href="/destinations/<%= d._id %>"  class='link'>DETAILS</a></td>
             <td>
-            <form action="destination/<%= d.id %>?_method=DELETE" class='delete-form' method="POST">
-                <button type='submit'>🗑️</button>
+                <form action="/destinations/<%= d._id%>?_method=DELETE" class='delete-form' method="POST">
+                    <button type='submit'>🗑️</button>
             </form>
             </td>
         <% }) %>
