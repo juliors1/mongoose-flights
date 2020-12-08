@@ -1,35 +1,32 @@
-const Destination = require("../models/destination");
-const Flight = require("../models/flight");
+const Destination = require('../models/destination')
 
 module.exports = {
-  new: newDestination,
-  create,
-  show,
-  deleteDestination,
-};
+    new: newDestination,
+    create,
+    show,
+    deleteDestination,
+}
 
-function newDestination(req, res) {
-  Destination.find({}, function (err, destinations) {
-    res.render("destinations/new", { title: "Add Destination", destinations });
-  });
+function newDestination(req, res){
+    Destination.find({}, function(err, destinations) {
+        res.render('destinations/new', {title: 'Add Destination', destinations})
+    })
 }
-function create(req, res) {
-  Destination.create(req.body, function (err, destinations) {
-    res.redirect("/destinations/new");
-  });
+
+function create(req, res){
+    Destination.create(req.body, function(err, destinations){
+        res.redirect('/destinations/new')
+    })
 }
-function show(req, res) {
-  Destination.findById(req.params.id, function (err, destination) {
-    res.render("destinations/show", {
-      title: "Destination Detail",
-      destination,
-    });
-  });
+
+function show(req, res){
+    Destination.findById(req.params.id, function(err, destination){
+        res.render('destinations/show', {title: 'Destination Detail', destination})
+    })
 }
-function deleteDestination(req, res) {
-  console.log("Error");
-  Destination.findByIdAndDelete(req.params.id, function(err, destinations){
-    console.log('ERRORS')
-    res.redirect('/destinations/new')
-})
+
+function deleteDestination(req, res){
+    Destination.findByIdAndDelete(req.params.id, function(err, destinations){
+        res.redirect('/destinations/new')
+    })
 }

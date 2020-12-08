@@ -3,17 +3,26 @@
 <form action="/flights" method="POST">
   <label>Airline:
     <select name="airline">
-        <option value="Delta">Delta</option>
+        <option value="Southwest">Southwest</option>
         <option value="American">American</option>
         <option value="United">United</option>
       </select>
-  </label><br>
+  </label><br><br>
+  <label>Airport:
+    <select name="airport">
+        <option value="DEN">DEN</option>
+        <option value="DFW">DFW</option>
+        <option value="AUS">AUS</option>
+        <option value="ABQ">ABQ</option>
+        <option value="ORD">ORD</option>
+      </select>
+  </label><br><br>
   <label>Flight Number:
     <input type="number" name="flightNo">
-  </label><br>
+  </label><br><br>
   <label>Departs:
         <input type="datetime-local" name="departs">
-  </label><br>
+  </label><br><br>
   <input type="submit" value='Add Flight' class='submitBtn'>
 </form>
 <h1><%= err %></h1>

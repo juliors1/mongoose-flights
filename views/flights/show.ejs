@@ -2,22 +2,24 @@
 <section id="show-page">
     <div>Airline: </div>
     <div><%= flight.airline %></div>
-    <div>Airport: </div>
-      <%- flight.airport.map(d =>
-        `${d.airport}`
-      ) %>
-    <form id="add-destination-to-airport" action="/flights/<%= flight._id %>/destinations" method="POST">
-      <select name="destinationId">
-        <%- destinations.map(d =>
-          `<option value="${d._id}">${d.airport}</option>`
-        ) %>
-      </select>
-      <button type="submit">Add  Destination</button>
-    </form><br>
+    <div>Airport:</div>
+    <div><%= flight.airport %> </div>
     <div>Flight Number: </div>
     <div><%= flight.flightNo %></div>
     <div>Departure: </div>
     <div><%= flight.departs %></div>
+    <div>Destination: </div><br>
+      <%- flight.destination.map((d) =>
+        `${d.destination}`
+      ) %>
+    <form id="add-destination-to-airport" action="/flights/<%= flight._id %>/destinations" method="POST">
+      <select name="destination">
+        <%- destinations.map(d =>
+          `<option value="${d._id}">${d.destination}</option>`
+        ) %>
+      </select>
+      <button type="submit">Add Destination</button>
+    </form><br>
 </section>
 <br><br><h2>Tickets</h2>
 <form id="add-ticket-form" method="POST"
@@ -46,7 +48,7 @@
             <td>$<%= t.price %></td>
             <td>
                 <form action="/<%= t._id %>/<%= flight._id%>?_method=DELETE" class='delete-form' method="POST">
-                    <button type='submit'>🗑️</button>
+                    <button type='submit'>X</button>
                 </form>
             </td>
           </tr>
